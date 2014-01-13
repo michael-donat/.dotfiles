@@ -1,0 +1,11 @@
+Host			github.com
+IdentityFile 		~/.ssh/thornag_rsa.prv
+
+Host			fgpl
+Hostname		forum-gitara.pl
+IdentityFile            ~/.ssh/thornag_rsa.prv
+User			thornag
+
+Host			mahakam.pl
+IdentityFile            ~/.ssh/thornag_rsa.prv
+User			thornag
