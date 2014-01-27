@@ -9,3 +9,8 @@ User			thornag
 Host			mahakam.pl
 IdentityFile            ~/.ssh/thornag_rsa.prv
 User			thornag
+
+Host			manage-prod
+Hostname			manage.moni.to
+IdentityFile		~/.ssh/moni-production-manage_rsa.prv
+User			ubuntu
