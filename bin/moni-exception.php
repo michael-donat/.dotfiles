@@ -9,9 +9,9 @@
 
 $link = new PDO('mysql:dbname=api_moni_core_api;host=127.0.0.1', 'root');
 
-$stmt = $link->query("select * from log where _topic = 'exception' order by id desc limit 5");
+$stmt = $link->query("select * from log where _topic = 'exception' order by id desc limit 2");
 
 while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $row["_msg"] = json_decode($row["_msg"]);
-    print_r($row);
+    print_r($row['_msg']);
 }
