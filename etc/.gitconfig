@@ -11,6 +11,8 @@
 
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	merged-remote = "!git branch -r --merged | grep origin | grep -v '>' | egrep -v 'master|develop|release/' | xargs -L1 | sed 's/origin\\///g'"
+	merges = log --pretty=format:"%h%x09%an%x09%ad%x09%s" --merges
 
 [filter "media"]
 	clean = git-media-clean %f
