@@ -12,7 +12,8 @@ pbcopy < ~/.ssh/id_rsa.pub
 cd ~
 mkdir dotfiles
 brew install nginx
-sudo ln -sfv /usr/local/opt/nginx/*.plist /Library/LaunchAgents/
+sudo cp /usr/local/opt/nginx/*.plist /Library/LaunchAgents/
+sudo chmod 644 /Library/LaunchAgents/homebrew.mxcl.nginx.plist
 mkdir -p ~/dotfiles/src
 touch ~/dotfiles/src/alias.sh
 echo "alias nginx.start='sudo launchctl load /Library/LaunchAgents/homebrew.mxcl.nginx.plist'" >> ~/dotfiles/src/alias.sh
