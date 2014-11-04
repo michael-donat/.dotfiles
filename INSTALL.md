@@ -6,5 +6,7 @@ brew cask install iterm2
 open ~/Applications/iTerm.app
 brew install git
 ssh-keygen -t rsa -C "`whoami`"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
 ```
 
