@@ -22,6 +22,7 @@ echo "alias nginx.restart='nginx.stop && nginx.start'" >> ~/dotfiles/src/alias.s
 mkdir -p /usr/local/log/nginx
 chmod 0777 -R /usr/local/log
 mkdir -p /usr/local/etc/nginx/sites/
+mkdir -p /usr/local/etc/nginx/php/
 cat << EOF > /usr/local/etc/nginx/nginx.conf
 worker_processes  1;
 
@@ -50,6 +51,22 @@ http {
     index index.html index.php app.php;
 
     include /usr/local/etc/nginx/sites/*;
+}
+EOF
+cat << EOF > /usr/local/etc/nginx/php/5.6
+location ~ \.php {
+	fastcgi_pass   127.0.0.1:9056;
+	fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
+	include        fastcgi_params;
+	fastcgi_split_path_info ^(.+\.php)(/.*)$;
+}
+EOF
+cat << EOF > /usr/local/etc/nginx/php/5.5
+location ~ \.php {
+	fastcgi_pass   127.0.0.1:9055;
+	fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
+	include        fastcgi_params;
+	fastcgi_split_path_info ^(.+\.php)(/.*)$;
 }
 EOF
 
