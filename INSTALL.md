@@ -11,5 +11,12 @@ ssh-add ~/.ssh/id_rsa
 pbcopy < ~/.ssh/id_rsa.pub
 cd ~
 mkdir dotfiles
+brew install nginx
+sudo ln -sfv /usr/local/opt/nginx/*.plist /Library/LaunchAgents/
+mkdir -p ~/dotfiles/src
+touch ~/dotfiles/src/alias.sh
+echo "alias nginx.start='sudo launchctl load /Library/LaunchAgents/homebrew.mxcl.nginx.plist'" >> ~/dotfiles/src/alias.sh
+echo "alias nginx.stop='sudo launchctl unload /Library/LaunchAgents/homebrew.mxcl.nginx.plist'" >> ~/dotfiles/src/alias.sh
+echo "alias nginx.restart='nginx.stop && nginx.start'" >> ~/dotfiles/src/alias.sh
 ```
 
