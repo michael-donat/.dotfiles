@@ -8,5 +8,8 @@ brew install git
 ssh-keygen -t rsa -C "`whoami`"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
+pbcopy < ~/.ssh/id_rsa.pub
+cd ~
+mkdir dotfiles
 ```
 
