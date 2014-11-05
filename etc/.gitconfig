@@ -2,21 +2,23 @@
 	ui = true
 [core]
 	fileMode = false
-	excludesfile = /Users/donatm/.gitignore_global
+	excludesfile = /Users/donatm/.gitignore
 [user]
 	name = Michael Donat
-	email = michael@monitechnologies.com
+	email = michael.donat@me.com
 [push]
         default = simple
 
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	merged-remote = "!git branch -r --merged | grep origin | grep -v '>' | egrep -v 'master|develop|release/' | xargs -L1 | sed 's/origin\\///g'"
+	merged-local = "!git branch --merged | grep origin | grep -v '>' | egrep -v 'master|develop|release/' | xargs -L1 | sed 's/origin\\///g'"
 	merges = log --pretty=format:"%h%x09%an%x09%ad%x09%s" --merges
-
+	tags = tag -l --sort=version:refname
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
