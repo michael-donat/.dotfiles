@@ -12,6 +12,7 @@ sudo cp -f /usr/local/opt/nginx/*.plist /Library/LaunchAgents/ || true
 sudo chmod 644 /Library/LaunchAgents/homebrew.mxcl.nginx.plist
 
 mkdir -p /usr/local/log/nginx
+mkdir -p /usr/local/var/run/nginx
 sudo chmod -R 0777 /usr/local/log
 
 cp -fr $dir/../etc/nginx/* /usr/local/etc/nginx/
