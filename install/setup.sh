@@ -16,3 +16,5 @@ cat $dir/../src/profile/path.sh >> ~/.bash_profile
 
 cp -f $dir/../etc/.gitconfig ~/.gitconfig
 cp -f $dir/../etc/.gitignore ~/.gitignore
+
+mkdir -p ~/Library/LaunchAgents

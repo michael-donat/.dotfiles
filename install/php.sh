@@ -11,6 +11,12 @@ if [[ -z "$version" ]]; then
     exit 1;
 fi
 
+if [[ -z "$2" ]]; then
+    brew tap homebrew/dupes
+    brew tap homebrew/versions
+    brew tap homebrew/php
+fi;
+
 if [[ $version = '55' ]]; then
     ./$dir/php/install.sh 55 5.5 $2
 else
