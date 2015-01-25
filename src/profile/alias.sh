@@ -30,3 +30,7 @@ alias logstash.stop="launchctl unload -w /Users/donatm/Library/LaunchAgents/home
 alias logstash.restart="logstash.stop && logstash.start"
 
 alias dnsflush="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+
+alias redis.start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+alias redis.stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+alias redis.restart="redis.stop && redis.start"
