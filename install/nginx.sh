@@ -19,7 +19,8 @@ sudo chmod -R 0777 /usr/local/log
 
 cp -fr $dir/../etc/nginx/* /usr/local/etc/nginx/
 
-sed -i '' "s#__ROOT__#$HOME\/usr\/local\/var\/www;#g" /usr/local/etc/nginx/sites/default
+sed -i '' "s#__ROOT__#\/usr\/local\/var\/www;#g" /usr/local/etc/nginx/sites/default
+echo '<?php phpinfo();' | sudo tee > /usr/local/var/www/info.php
 
 sudo nginx -t
 
