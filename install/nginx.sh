@@ -5,11 +5,12 @@ set -e
 dir="$(dirname $0)"
 
 if [[ $1 = "install" ]]; then
-    brew install nginx || true
+    brew tap homebrew/nginx || true
+    brew install nginx-full --with-status || true
 fi
 
-sudo cp -f /usr/local/opt/nginx/*.plist /Library/LaunchAgents/ || true
-sudo chmod 644 /Library/LaunchAgents/homebrew.mxcl.nginx.plist
+sudo cp -f `brew --prefix nginx-full`/*.plist /Library/LaunchAgents/ || true
+sudo chmod 644 /Library/LaunchAgents/homebrew.mxcl.nginx-full.plist
 
 mkdir -p /usr/local/log/nginx
 mkdir -p /usr/local/var/run/nginx
@@ -22,9 +23,12 @@ sed -i '' "s#__ROOT__#$HOME\/Development\/server;#g" /usr/local/etc/nginx/sites/
 
 sudo nginx -t
 
-sudo launchctl load /Library/LaunchAgents/homebrew.mxcl.nginx.plist || true
+sudo launchctl unload /Library/LaunchAgents/homebrew.mxcl.nginx-full.plist || true
+sudo launchctl load /Library/LaunchAgents/homebrew.mxcl.nginx-full.plist || true
 
-code=$(curl -sL -w "%{http_code}" 127.0.0.1/php55 -o /dev/null)
+sleep 2;
+
+code=$(curl -sL -w "%{http_code}" 127.0.0.1/status -o /dev/null || true)
 
 if [[ $code = 200 ]];then
     echo '=========================';

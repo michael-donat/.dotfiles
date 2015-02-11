@@ -2,6 +2,11 @@ server {
     listen       80;
     server_name  localhost;
     root         __ROOT__
+
+    location /status {
+        stub_status on;
+        access_log   off;
+    }
  
     location /php55 {
         fastcgi_pass   127.0.0.1:9055;

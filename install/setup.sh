@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ev
+set -e
 
 mkdir -p ~/.dotfiles
 rm -f ~/.bash_profile
@@ -14,7 +14,9 @@ cat $dir/../src/profile/terminal.sh >> ~/.bash_profile
 cat $dir/../src/profile/alias.sh >> ~/.bash_profile
 cat $dir/../src/profile/path.sh >> ~/.bash_profile
 
-cp -f $dir/../etc/.gitconfig ~/.gitconfig || true
-cp -f $dir/../etc/.gitignore ~/.gitignore || true
+rm ~/.gitconfig
+rm ~/.gitignore
+cp -f $dir/../etc/.gitconfig ~/.gitconfig
+cp -f $dir/../etc/.gitignore ~/.gitignore
 
 mkdir -p ~/Library/LaunchAgents

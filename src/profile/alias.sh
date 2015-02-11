@@ -5,8 +5,8 @@ alias dnsmasq.start='sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dn
 alias dnsmasq.stop='sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist'
 alias dnsmasq.restart='dnsmasq.stop && dnsmasq.start'
 
-alias nginx.start='sudo launchctl load /Library/LaunchAgents/homebrew.mxcl.nginx.plist'
-alias nginx.stop='sudo launchctl unload /Library/LaunchAgents/homebrew.mxcl.nginx.plist'
+alias nginx.start='sudo launchctl load /Library/LaunchAgents/homebrew.mxcl.nginx-full.plist'
+alias nginx.stop='sudo launchctl unload /Library/LaunchAgents/homebrew.mxcl.nginx-full.plist'
 alias nginx.restart='nginx.stop && nginx.start'
 
 alias php55.start="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.php55.plist"
