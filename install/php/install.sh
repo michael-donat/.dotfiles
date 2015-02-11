@@ -36,6 +36,8 @@ php-fpm -t
 
 launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.php$version.plist
 
+sleep 2
+
 nc -z 127.0.0.1 90$version || {
     error=1
 }

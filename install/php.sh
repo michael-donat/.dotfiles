@@ -11,7 +11,7 @@ if [[ -z "$version" ]]; then
     exit 1;
 fi
 
-if [[ -z "$2" ]]; then
+if [[ -n "$2" ]]; then
     brew tap homebrew/dupes
     brew tap homebrew/versions
     brew tap homebrew/php
