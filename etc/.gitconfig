@@ -15,3 +15,4 @@
 	merged-local = "!git branch --merged | grep origin | grep -v '>' | egrep -v 'master|develop|release/' | xargs -L1 | sed 's/origin\\///g'"
 	merges = log --pretty=format:"%h%x09%an%x09%ad%x09%s" --merges
 	tags = tag -l --sort=version:refname
+	feature = !git fetch && git reset --hard origin/develop && git feature-branch
