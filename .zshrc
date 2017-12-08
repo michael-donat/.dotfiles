@@ -1,4 +1,4 @@
-DOTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DOTDIR="$( dirname "$_" )"
 
 export ZSH=/Users/mdonat/.oh-my-zsh
 
