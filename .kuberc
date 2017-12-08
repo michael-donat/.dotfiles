@@ -1,0 +1,53 @@
+export CLUSTER_NAME=dev-k8s
+export MASTER_HOST=elb.master.k8s.dev.uw.systems
+export CERT_DIR=~/.k8s-certs/dev/k8s
+export CA_CERT=$CERT_DIR/ca.pem
+export ADMIN_KEY=$CERT_DIR/k8s-admin-key.pem
+export ADMIN_CERT=$CERT_DIR/k8s-admin.pem
+
+alias kubectl='kubectl --context=$KUBE_CONTEXT'
+
+alias kpp='k --namespace=partner-portal'
+alias kp='k --namespace=partner'
+alias ka='k --namespace=auth'
+alias kc='k --namespace=consumer'
+alias kw='k --namespace=william'
+alias kj='k --namespace=jtc'
+alias kr='k --namespace=residential'
+alias ki='k --namespace=insurance'
+alias kl='k --namespace=labs'
+alias ku='k --namespace=unicom'
+alias kco='k --namespace=corporate'
+alias kprm='k --namespace=prm'
+
+k() {
+	pwd=$(pwd)
+        if [[ $KUBE_CONTEXT == "prod" && $pwd == *"dev"* ]]; then
+		echo 'Applying dev against prod you dumbo!'
+		return 1
+	fi
+
+        if [[ $KUBE_CONTEXT == "dev" && $pwd == *"prod"* ]]; then
+                echo 'Applying prod against dev you dumbo!'
+                return 1
+        fi
+
+
+	kubectl $@
+}
+
+kpatch() {
+	kubectl --namespace=$1 patch deployment $2 -p  "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"date\":\"`date +'%s'`\"}}}}}"
+}
+
+kube_prod() {
+	echo "$(tput setaf 1)Using K8S PROD$(tput sgr0)"
+        PS1="%{$fg[red]%}K8S-PROD %{$reset_color%} $PS1"
+	export KUBE_CONTEXT=prod
+
+}
+
+export KUBE_NAMESPACE=default
+export KUBE_CONTEXT=dev
+
+kubectl config use-context $KUBE_CONTEXT
