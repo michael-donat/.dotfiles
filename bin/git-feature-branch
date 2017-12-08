@@ -1,5 +1,0 @@
-#!/bin/bash
-num=$1
-shift
-branch=$(echo $@ | tr " " "- ")
-git checkout -b feature/WEB-$num/$branch
