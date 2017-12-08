@@ -5,10 +5,10 @@ export ZSH=/Users/mdonat/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 ZSH_THEME="maran"
 
-#ENABLE_CORRECTION="true"
-COMPLETION_WAITING_DOTS="true"
+ENABLE_CORRECTION="true"
+#COMPLETION_WAITING_DOTS="true"
 
-plugins=(git)
+plugins=(git docker osx yarn)
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
@@ -19,7 +19,7 @@ PROMPT="${PROMPT}${NEWLINE} -> "
 
 compctl -g '~/.itermocil/*(:t:r)' itermocil
 
-export GOPATH=/Users/mdonat/Development/go
+export GOPATH=/Users/mdonat/GOPATH
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
