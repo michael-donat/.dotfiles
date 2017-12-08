@@ -1,4 +1,4 @@
-alias ediconfig="cp $DOTDIR/srv/.editorconfig ."
+alias ediconfig="cp $DOTDIR/src/.editorconfig ."
 
 chrome() {
   open -a 'Google Chrome' $1

@@ -5,7 +5,7 @@ export ZSH=/Users/mdonat/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 ZSH_THEME="maran"
 
-ENABLE_CORRECTION="true"
+#ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 
 plugins=(git)
