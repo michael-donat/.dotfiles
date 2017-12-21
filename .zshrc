@@ -19,8 +19,10 @@ PROMPT="${PROMPT}${NEWLINE} -> "
 
 compctl -g '~/.itermocil/*(:t:r)' itermocil
 
-export GOPATH=/Users/mdonat/GOPATH
+export GOPATH=/Volumes/Development
+
 export GOROOT=/usr/local/opt/go/libexec
+
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
@@ -33,5 +35,6 @@ source $DOTDIR/.keypad
 source $DOTDIR/.kuberc
 source $DOTDIR/.uw
 
+DHOME=/Users/mdonat/Development/src/github.com/utilitywarehouse
 
-cd ~/Development
+cd $DHOME

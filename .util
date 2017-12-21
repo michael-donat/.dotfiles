@@ -4,3 +4,4 @@ chrome() {
   open -a 'Google Chrome' $1
 }
 
+alias envsubst="/usr/local/Cellar/gettext/0.19.8.1/bin/envsubst"
