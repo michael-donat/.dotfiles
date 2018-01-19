@@ -35,6 +35,6 @@ source $DOTDIR/.keypad
 source $DOTDIR/.kuberc
 source $DOTDIR/.uw
 
-DHOME=/Users/mdonat/Development/src/github.com/utilitywarehouse
+DHOME=/Volumes/Development/src/github.com/utilitywarehouse
 
 cd $DHOME
