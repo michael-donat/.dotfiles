@@ -1,0 +1,31 @@
+[color]
+	ui = true
+[core]
+	fileMode = false
+	excludesfile = ~/.gitignore
+[user]
+	name = Michael Donat
+	email = michael.donat@me.com
+[push]
+        default = simple
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	merged-remote = "!git branch -r --merged | grep origin | grep -v '>' | egrep -v 'master|develop|release/|uat' | xargs -L1 | sed 's/origin\\///g'"
+	merged-local = "!git branch --merged | grep origin | grep -v '>' | egrep -v 'master|develop|release/' | xargs -L1 | sed 's/origin\\///g'"
+	merges = log --pretty=format:"%h%x09%s" --merges
+	mergesf = log --pretty=format:"%h%x09%an%x09%ad%x09%s" --merges
+	tags = tag -l --sort=version:refname
+	feature = !git fetch && git reset --hard origin/develop && git feature-branch
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[filter "strongbox"]
+	clean = strongbox clean %f
+	smudge = strongbox smudge %f
+	required = true
+[diff "strongbox"]
+	textconv = strongbox diff
+[url "git@github.com:"]
+    insteadOf = https://github.com/
