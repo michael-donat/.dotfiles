@@ -5,12 +5,12 @@ export ZSH=/Users/mdonat/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 ZSH_THEME="maran"
 
-ENABLE_CORRECTION="true"
+#ENABLE_CORRECTION="true"
 #COMPLETION_WAITING_DOTS="true"
 
 plugins=(git docker osx yarn)
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin"
 
 source $ZSH/oh-my-zsh.sh
 
