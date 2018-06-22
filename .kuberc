@@ -11,6 +11,7 @@ alias kpp='k --namespace=partner-portal'
 alias kp='k --namespace=partner'
 alias ka='k --namespace=auth'
 alias kc='k --namespace=consumer'
+alias kcl='k --namespace=clubhouse'
 alias kw='k --namespace=william'
 alias kj='k --namespace=jtc'
 alias kr='k --namespace=residential'
@@ -19,6 +20,7 @@ alias kl='k --namespace=labs'
 alias ku='k --namespace=unicom'
 alias kco='k --namespace=corporate'
 alias kprm='k --namespace=prm'
+alias kbi='k --namespace=bill-integration'
 
 k() {
 	pwd=$(pwd)
