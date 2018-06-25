@@ -21,6 +21,7 @@ alias ku='k --namespace=unicom'
 alias kco='k --namespace=corporate'
 alias kprm='k --namespace=prm'
 alias kbi='k --namespace=bill-integration'
+alias kcrm='k --namespace=crm'
 
 k() {
 	pwd=$(pwd)
