@@ -22,10 +22,10 @@
 	process = git-lfs filter-process
 	required = true
 [filter "strongbox"]
-	clean = strongbox clean %f
-	smudge = strongbox smudge %f
+	clean = strongbox -clean %f
+	smudge = strongbox -smudge %f
 	required = true
 [diff "strongbox"]
-	textconv = strongbox diff
+	textconv = strongbox -diff
 [url "git@github.com:"]
     insteadOf = https://github.com/
