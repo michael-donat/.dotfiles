@@ -7,6 +7,8 @@
 	name = Michael Donat
 	email = michael.donat@me.com
 	signingkey = D590E4B17B511608
+[commit]
+	gpgsign = true
 [push]
         default = simple
 [alias]
