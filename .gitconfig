@@ -6,6 +6,9 @@
 [user]
 	name = Michael Donat
 	email = michael.donat@me.com
+	signingkey = D590E4B17B511608
+[tag]
+	gpgsign = true
 [push]
         default = simple
 [alias]
@@ -22,10 +25,12 @@
 	process = git-lfs filter-process
 	required = true
 [filter "strongbox"]
-	clean = strongbox clean %f
-	smudge = strongbox smudge %f
+	clean = strongbox -clean %f
+	smudge = strongbox -smudge %f
 	required = true
 [diff "strongbox"]
-	textconv = strongbox diff
+	textconv = strongbox -diff
 [url "git@github.com:"]
     insteadOf = https://github.com/
+[gpg]
+	program = /usr/local/MacGPG2/bin/gpg2
