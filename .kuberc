@@ -1,9 +1,3 @@
-export CLUSTER_NAME=dev-k8s
-export MASTER_HOST=elb.master.k8s.dev.uw.systems
-export CERT_DIR=~/.k8s-certs/dev/k8s
-export CA_CERT=$CERT_DIR/ca.pem
-export ADMIN_KEY=$CERT_DIR/k8s-admin-key.pem
-export ADMIN_CERT=$CERT_DIR/k8s-admin.pem
 
 alias kubectl='kubectl --context=$KUBE_CONTEXT'
 
@@ -24,6 +18,7 @@ alias kbi='k --namespace=bill-integration'
 alias kur='k --namespace=unicorns-and-rainbows-supply-industry'
 alias kcp='k --namespace=customer-platform'
 alias kcrm='k --namespace=crm'
+alias ke='k --namespace=energy'
 
 k() {
 	pwd=$(pwd)
@@ -41,6 +36,23 @@ k() {
 	kubectl $@
 }
 
+kpf() {
+    if [[ "$#" != "3" ]]; then
+        echo "kpf namespace-alias pod-name port-spec"
+        return 1
+    fi
+
+    getpod="k$1 get pods | grep $2 -m 1 | cut -d ' ' -f 1"
+
+    pod=$(eval $getpod)
+
+    forward="k$1 port-forward $pod $3"
+
+    echo "$forward"
+
+    eval $forward
+}
+
 kpatch() {
 	kubectl --namespace=$1 patch deployment $2 -p  "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"date\":\"`date +'%s'`\"}}}}}"
 }
@@ -48,11 +60,11 @@ kpatch() {
 kube_prod() {
 	echo "$(tput setaf 1)Using K8S PROD$(tput sgr0)"
         PS1="%{$fg[red]%}K8S-PROD %{$reset_color%} $PS1"
-	export KUBE_CONTEXT=prod
+	export KUBE_CONTEXT=prod-aws
 
 }
 
 export KUBE_NAMESPACE=default
-export KUBE_CONTEXT=dev
+export KUBE_CONTEXT=dev-aws
 
 kubectl config use-context $KUBE_CONTEXT
